@@ -1,0 +1,32 @@
+<div class="medium-3 columns" data-sticky-container>
+  <div class="sticky" data-sticky data-anchor="content">
+
+  {{ if isset .Site.Params.sidebar "about" }}
+    <h4>{{ i18n "about" }}</h4>
+    <p>{{ .Site.Params.sidebar.about | markdownify }}</p>
+  {{ end }}
+
+  {{ $num_recent_posts := (index .Site.Params.sidebar "num_recent_posts" | default 5) }}
+
+  <h4>{{ i18n "recentPosts" }}</h4>
+  <ul>
+    {{ range first $num_recent_posts (where .Site.Pages "Type" "post") }}
+      <li><a href="{{.RelPermalink}}">
+        {{.Title | markdownify }}
+      </a></li>
+    {{ end }}
+  </ul>
+
+  {{ with .Site.Menus.sidebar }}
+    <h4>{{ i18n "links" }}</h4>
+    <ul>
+      {{ range . }}
+        <li><a href="{{ .URL | absURL }}">
+          {{ .Name }}
+        </a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  </div>
+</div>
