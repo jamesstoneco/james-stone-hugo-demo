@@ -7,22 +7,7 @@
     <h1 class="text-center">
       {{ .Title | markdownify }}
     </h1>
-    <div class="callout small">
-      <small>
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-          {{ .Date.Format $dateFormat }}
-        </time> by {{ .Params.author | default .Site.Params.author }}.
-        {{ if (.Params.categories) }}Categories: {{ partial "meta-categories.html" . }}.{{ end }}
-        {{ if (.Params.tags) }}Tags: {{ partial "meta-tags.html" . }}.{{ end }}
-        <br>
-        {{ if not .Site.Params.sharingicons.hide }}
-          {{ partial "sharing-icons.html" . }}
-        {{ end }}
-      </small>
-    </div>
-    <p>
       {{ .Content }}
-    </p>
     {{ if .IsTranslated }}
       <h4>{{ i18n "translations" }}</h4>
       <ul>

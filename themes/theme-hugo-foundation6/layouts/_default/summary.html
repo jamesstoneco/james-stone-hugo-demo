@@ -4,15 +4,6 @@
   <h3>
     <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
   </h3>
-  <div class="callout small">
-    <small>
-      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-        {{ .Date.Format $dateFormat }}
-      </time> by {{ .Params.author | default .Site.Params.author }}.
-      {{ if (.Params.categories) }}Categories: {{ partial "meta-categories.html" . }}.{{ end }}
-      {{ if (.Params.tags) }}Tags: {{ partial "meta-tags.html" . }}.{{ end }}
-    </small>
-  </div>
   <p>
     {{ .Summary }}
   </p>
