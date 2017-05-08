@@ -4,9 +4,9 @@ title = "James Stone"
 theme = "theme-hugo-foundation6"
 
 # number of posts to show on home/category/tag pages (Default: 10)
-paginate = 5
+paginate = 10
 # optionally override the site's footer with custom copyright text
-copyright = "Sites templates are MIT. Content is copyright James Stone, All Rights Reserved"
+copyright = "Templates, Site, Content MIT."
 
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"

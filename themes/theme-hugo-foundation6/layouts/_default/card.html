@@ -1,6 +1,6 @@
 {{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
 
-<div class="card primary blog-post">
+<div class="card blog-post" data-equalizer-watch>
   <div class="card-divider">
     <h4>
     {{ .Title | markdownify }}
@@ -9,5 +9,5 @@
   <div class="card-section">
     <p>{{ .Summary }}</p>
   </div>
-  <a href='{{ .Permalink }}' class="button secondary expanded">{{ i18n "readMore" }}</a>
+  <a href='{{ .Permalink }}' class="button expanded">{{ i18n "readMore" }}</a>
 </div>
