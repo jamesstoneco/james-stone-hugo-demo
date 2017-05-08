@@ -1,7 +1,9 @@
 +++
 title = "Contact"
 layout = "page"
-[menu.navbar]
-  identifier = "contact"
+activeMenu = "contact"
+
 +++
+
+Contact Page
 
