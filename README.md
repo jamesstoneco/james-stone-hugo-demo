@@ -1,4 +1,4 @@
-This is a demo of how I approached a project using Hugo on [Netlify](https://netlify.com.
+This is a demo of how I approached a project using Hugo on [Netlify](https://netlify.com).
 
 You can view the live site at:
 
@@ -6,11 +6,11 @@ You can view the live site at:
 
 ## Installation Instructions
 
-Run the following to install hugo on a Mac
+Run the following to install [hugo](https://gohugo.io) on a Mac
 
 `brew update && brew install hugo`
 
-Run the following to install the files required by the theme / gulp build system
+Run the following to install the files required by the [theme](https://themes.gohugo.io/hugo-theme-foundation6) / gulp build system
 
 `bower install && npm install`
 
@@ -26,7 +26,7 @@ To rebuild the CSS and JavaScript from the theme, run the following
 
 # Netlify Deploy
 
-To deploy on [Netlify](https://netlify.com use the following command:
+To deploy on [Netlify](https://netlify.com) use the following command:
 
 `npm run build:prod && hugo -D -t theme-hugo-foundation6`
 
