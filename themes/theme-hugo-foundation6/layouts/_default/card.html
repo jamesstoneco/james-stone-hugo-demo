@@ -1,0 +1,13 @@
+{{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
+
+<div class="card primary blog-post">
+  <div class="card-divider">
+    <h4>
+    {{ .Title | markdownify }}
+    </h4>
+  </div>
+  <div class="card-section">
+    <p>{{ .Summary }}</p>
+  </div>
+  <a href='{{ .Permalink }}' class="button secondary expanded">{{ i18n "readMore" }}</a>
+</div>
