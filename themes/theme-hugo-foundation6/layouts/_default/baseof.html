@@ -40,27 +40,20 @@
         </div>
         <div class="top-bar-right">
           <ul class="menu">
-            <li class="{{ if .IsHome }}active{{ end }}"><a href="{{ .Site.BaseURL | absLangURL }}">
-              {{ i18n "home" }}
-            </a></li>
-            {{ if .Site.Params.custom_navbar }}
-            {{ range .Site.Menus.navbar }}
-            <li {{ if or ($.IsMenuCurrent "navbar" .) ($.HasMenuCurrent "navbar" .) }} class="active" {{  end }}><a href="{{.URL | absURL }}">
+            {{ $url := .URL }}
+            {{ range .Site.Menus.main }}
+            <li {{ if eq $url .URL }} class="active" {{  end }}><a href="{{.URL | absURL }}">
               {{ .Name }}
             </a></li>
-            {{ end }}
-            {{ else }}
-            {{ range where .Site.Pages "Type" "!=" "post" }}
-            <li><a href="{{ .Permalink }}">
-              {{ .Title }}
-            </a></li>
-            {{ end }}
             {{ end }}
           </ul>
         </div>
       </div>
     </div>
   </header>
+
+  <br>
+  
   <main>
     <div class="row" id="content">
       <div class="medium-12 columns">

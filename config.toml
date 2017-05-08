@@ -7,6 +7,7 @@ theme = "theme-hugo-foundation6"
 paginate = 5
 # optionally override the site's footer with custom copyright text
 copyright = "Sites templates are MIT. Content is copyright James Stone, All Rights Reserved"
+
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"
 
@@ -14,30 +15,24 @@ copyright = "Sites templates are MIT. Content is copyright James Stone, All Righ
   post = "/:year/:month/:title/"
   page = "/:slug/"
 
-[[menu.sidebar]]
-  name = "Link 1"
-  url = "https://example.com"
+[[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 1
 
-[[menu.sidebar]]
-  name = "Link 2"
-  url = "https://example.org"
-
-# custom navbar menu entry.   See the custom_navbar parameter below for
-# details.
-
-# this does not seem to work for some reason
-
-[[menu.navbar]]
+[[menu.main]]
   identifier = "about"
   name = "About"
   url = "/about/"
-  weight = 0
+  weight = 5
 
-[[menu.navbar]]
+[[menu.main]]
   identifier = "contact"
   name = "Contact"
   url = "/contact/"
-  weight = 1
+  weight = 10
+
 
 
 # Theme variables

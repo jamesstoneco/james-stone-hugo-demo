@@ -1,7 +1,7 @@
 +++
 title = "About"
 layout = "page"
-activeMenu = "about"
+
 +++
 
 Hi, my name is James Stone.
