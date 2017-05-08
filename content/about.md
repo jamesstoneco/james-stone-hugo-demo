@@ -1,6 +1,8 @@
 +++
 title = "About"
 layout = "page"
+[menu.navbar]
+  identifier = "about"
 +++
 
 Hi, my name is James Stone.

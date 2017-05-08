@@ -2,6 +2,7 @@ baseURL = "https://james-stone-hugo-demo.netlify.com/"
 languageCode = "en-us"
 title = "James Stone"
 theme = "theme-hugo-foundation6"
+
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 5
 # optionally override the site's footer with custom copyright text
@@ -24,9 +25,19 @@ copyright = "Sites templates are MIT. Content is copyright James Stone, All Righ
 # custom navbar menu entry.   See the custom_navbar parameter below for
 # details.
 
+# this does not seem to work for some reason
+
 [[menu.navbar]]
-  name = "Link 1"
-  url = "https://example.org"
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 0
+
+[[menu.navbar]]
+  identifier = "contact"
+  name = "Contact"
+  url = "/contact/"
+  weight = 1
 
 
 # Theme variables
@@ -64,7 +75,8 @@ copyright = "Sites templates are MIT. Content is copyright James Stone, All Righ
   # the relevant pages
   #   menu = "navbar"
   # or by specifying menu entries in a similar way to the sidebar menu above.
-  #custom_navbar = true
+  
+  custom_navbar = true
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)

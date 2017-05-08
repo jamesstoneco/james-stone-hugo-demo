@@ -1,91 +1,92 @@
 <!DOCTYPE html>
 <html lang="{{ .Lang }}">
-  <head>
+<head>
 
-    {{ partial "head-meta.html" . }}
+  {{ partial "head-meta.html" . }}
 
-    <base href="{{ .Site.BaseURL }}">
-    <link rel="canonical" href="{{ .Permalink }}">
-    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  <base href="{{ .Site.BaseURL }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
-    {{ "<!-- CSS -->" | safeHTML }}
-    <link href="{{ .Site.BaseURL }}css/app.css" rel="stylesheet">
+  {{ "<!-- CSS -->" | safeHTML }}
+  <link href="{{ .Site.BaseURL }}css/app.css" rel="stylesheet">
 
-    {{ if .RSSLink }}
-      {{ "<!-- RSS 2.0 feed -->" | safeHTML }}
-      <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-      <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-    {{ end }}
+  {{ if .RSSLink }}
+  {{ "<!-- RSS 2.0 feed -->" | safeHTML }}
+  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{ end }}
 
-    {{ if .Site.Params.cookie_consent_info_url }}
-      {{ partial "cookie-consent.html" . }}
-    {{ end }}
+  {{ if .Site.Params.cookie_consent_info_url }}
+  {{ partial "cookie-consent.html" . }}
+  {{ end }}
 
-    {{ template "_internal/google_analytics_async.html" . }}
-    {{ partial "head-custom.html" . }}
+  {{ template "_internal/google_analytics_async.html" . }}
+  {{ partial "head-custom.html" . }}
 
-  </head>
-  <body>
+</head>
+<body>
 
-    <header class="nav">
-      <div class="top-bar">
-        <div class="row column">
-          <div class="top-bar-left">
-            <ul class="menu">
-              <li><a href="{{ .Site.BaseURL | absLangURL }}">
-                  {{ .Site.Title | safeHTML }}
-                </a></li>
-            </ul>
-          </div>
-          <div class="top-bar-right">
-            <ul class="menu">
-              <li class="{{ if .IsHome }}active{{ end }}"><a href="{{ .Site.BaseURL | absLangURL }}">
-                {{ i18n "home" }}
-              </a></li>
-              {{ if .Site.Params.custom_navbar }}
-                {{ range .Site.Menus.navbar }}
-                  <li><a href="{{.URL | absURL }}">
-                    {{ .Name }}
-                  </a></li>
-                {{ end }}
-              {{ else }}
-                {{ range where .Site.Pages "Type" "!=" "post" }}
-                  <li><a href="{{ .Permalink }}">
-                    {{ .Title }}
-                  </a></li>
-                {{ end }}
-              {{ end }}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main>
-      <div class="row" id="content">
-        <div class="medium-12 columns">
-          {{ block "main" . }}
-            <!-- The part of the page that begins to differ between templates -->
-          {{ end }}
-        </div>
-      </div>
-    </main>
 
-    <footer class="blog-footer">
+  <header class="nav">
+    <div class="top-bar">
       <div class="row column">
-        <p class="text-center">
-          {{ if .Site.Copyright }}
-          {{ .Site.Copyright | markdownify }}
-          {{ else }}
-          Blog template created by <a href="hhttps://github.com/zurb">@zurb</a>, ported to Hugo by <a href='https://github.com/htkoca'>github.com/htko89</a>.
-          {{ end }}
-        </p>
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li><a href="{{ .Site.BaseURL | absLangURL }}">
+              {{ .Site.Title | safeHTML }}
+            </a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li class="{{ if .IsHome }}active{{ end }}"><a href="{{ .Site.BaseURL | absLangURL }}">
+              {{ i18n "home" }}
+            </a></li>
+            {{ if .Site.Params.custom_navbar }}
+            {{ range .Site.Menus.navbar }}
+            <li {{ if or ($.IsMenuCurrent "navbar" .) ($.HasMenuCurrent "navbar" .) }} class="active" {{  end }}><a href="{{.URL | absURL }}">
+              {{ .Name }}
+            </a></li>
+            {{ end }}
+            {{ else }}
+            {{ range where .Site.Pages "Type" "!=" "post" }}
+            <li><a href="{{ .Permalink }}">
+              {{ .Title }}
+            </a></li>
+            {{ end }}
+            {{ end }}
+          </ul>
+        </div>
       </div>
-    </footer>
+    </div>
+  </header>
+  <main>
+    <div class="row" id="content">
+      <div class="medium-12 columns">
+        {{ block "main" . }}
+        <!-- The part of the page that begins to differ between templates -->
+        {{ end }}
+      </div>
+    </div>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="row column">
+      <p class="text-center">
+        {{ if .Site.Copyright }}
+        {{ .Site.Copyright | markdownify }}
+        {{ else }}
+        Blog template created by <a href="hhttps://github.com/zurb">@zurb</a>, ported to Hugo by <a href='https://github.com/htkoca'>github.com/htko89</a>.
+        {{ end }}
+      </p>
+    </div>
+  </footer>
 
   <foot>
 
     <script src="{{ .Site.BaseURL }}js/app.js"></script>
 
   </foot>
-  </body>
+</body>
 </html>
