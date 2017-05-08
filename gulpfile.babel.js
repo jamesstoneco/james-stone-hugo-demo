@@ -21,8 +21,10 @@
     return yaml.load(ymlFile);
   }
   var THEME = {}; var HUGO = {}; THEME.source = {} ; THEME.public = {}
-    THEME.root  =     path.dirname( path.resolve() );                           // Set Theme root variable first
-    HUGO.root   =     path.join( THEME.root, '../..' );                         // Full path of Hugo's root (assumes it is two directories up)
+    // THEME.root  =     path.dirname( path.resolve() );                           // Set Theme root variable first
+    // HUGO.root   =     path.join( THEME.root, '../..' );                         // Full path of Hugo's root (assumes it is two directories up)
+    THEME.root  =     path.join( path.resolve(), 'themes/theme-hugo-foundation6' );                           // Set Theme root variable first
+    HUGO.root   =     path.dirname( path.resolve() );                         // Full path of Hugo's root (assumes it is two directories up)
     THEME = {
       root      :     THEME.root,                                               // Full path of theme's root
       name      :     THEME.root.split( path.sep ).pop(),                       // Full name of theme's root folder
